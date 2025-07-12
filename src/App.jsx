@@ -4,6 +4,7 @@ import Landing from "./Pages/Landing";
 import UserProfilePage from "./Pages/profile";
 import EditProfilePage from "./Pages/edit";
 import About from "./Pages/about";
+import FAQ from "./Pages/faq";
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
           <Route path="/profile" element={<UserProfilePage />} />
           <Route path="/edit" element={<EditProfilePage />} />
           <Route path="/about" element={<About />} />
+          <Route path="/faq" element={<FAQ />} />
         </Routes>
       </BrowserRouter>
       <Footer />
