@@ -1,6 +1,21 @@
 import { useState, useEffect } from "react";
+// eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, Search, HelpCircle, MessageCircle, BookOpen, Lightbulb, Zap, Users, Shield, CheckCircle, Phone, Mail, ArrowRight } from "lucide-react";
+import {
+  ChevronDown,
+  Search,
+  HelpCircle,
+  MessageCircle,
+  BookOpen,
+  Lightbulb,
+  Zap,
+  Users,
+  Shield,
+  CheckCircle,
+  Phone,
+  Mail,
+  ArrowRight,
+} from "lucide-react";
 
 const GeneralIcon = () => <HelpCircle className="w-6 h-6" />;
 const AccountIcon = () => <MessageCircle className="w-6 h-6" />;
@@ -20,62 +35,72 @@ const faqs = [
     id: 1,
     category: "getting-started",
     question: "How do I get started with NEXUS?",
-    answer: "Getting started with NEXUS is simple! First, create your account by clicking the 'Get Started' button. Then, complete your profile by adding your skills, interests, and project goals. Our onboarding wizard will guide you through connecting with relevant collaborators and joining your first project."
+    answer:
+      "Getting started with NEXUS is simple! First, create your account by clicking the 'Get Started' button. Then, complete your profile by adding your skills, interests, and project goals. Our onboarding wizard will guide you through connecting with relevant collaborators and joining your first project.",
   },
   {
     id: 2,
     category: "platform",
     question: "What is skill swapping and how does it work?",
-    answer: "Skill swapping is our unique feature that allows you to exchange knowledge and expertise with other community members. You can offer skills you're proficient in and request to learn skills from others. Our matching algorithm connects you with compatible partners based on complementary skill sets."
+    answer:
+      "Skill swapping is our unique feature that allows you to exchange knowledge and expertise with other community members. You can offer skills you're proficient in and request to learn skills from others. Our matching algorithm connects you with compatible partners based on complementary skill sets.",
   },
   {
     id: 3,
     category: "collaboration",
     question: "How do I find and join projects?",
-    answer: "You can discover projects through several ways: browse our project directory filtered by category, skill requirements, or timeline; get personalized project recommendations based on your profile; join through invitations from other members; or create your own project and invite collaborators."
+    answer:
+      "You can discover projects through several ways: browse our project directory filtered by category, skill requirements, or timeline; get personalized project recommendations based on your profile; join through invitations from other members; or create your own project and invite collaborators.",
   },
   {
     id: 4,
     category: "platform",
     question: "Is the chat application secure and private?",
-    answer: "Absolutely! Our chat application uses end-to-end encryption for all messages, ensuring only you and your intended recipients can read your conversations. We implement enterprise-grade security protocols and comply with international privacy standards."
+    answer:
+      "Absolutely! Our chat application uses end-to-end encryption for all messages, ensuring only you and your intended recipients can read your conversations. We implement enterprise-grade security protocols and comply with international privacy standards.",
   },
   {
     id: 5,
     category: "getting-started",
     question: "Do I need any specific technical skills to use NEXUS?",
-    answer: "Not at all! NEXUS is designed to be user-friendly for people of all technical backgrounds. Whether you're a complete beginner or an experienced professional, our intuitive interface and comprehensive help documentation make it easy to navigate."
+    answer:
+      "Not at all! NEXUS is designed to be user-friendly for people of all technical backgrounds. Whether you're a complete beginner or an experienced professional, our intuitive interface and comprehensive help documentation make it easy to navigate.",
   },
   {
     id: 6,
     category: "collaboration",
     question: "How does project collaboration work?",
-    answer: "Project collaboration on NEXUS includes integrated tools for team communication, file sharing, task management, and progress tracking. Each project has its own workspace with chat channels, document repositories, and milestone tracking."
+    answer:
+      "Project collaboration on NEXUS includes integrated tools for team communication, file sharing, task management, and progress tracking. Each project has its own workspace with chat channels, document repositories, and milestone tracking.",
   },
   {
     id: 7,
     category: "security",
     question: "How is my personal information protected?",
-    answer: "We take data protection seriously and implement multiple layers of security. Your personal information is encrypted both in transit and at rest, stored on secure servers with regular backups. We follow GDPR and other international privacy regulations."
+    answer:
+      "We take data protection seriously and implement multiple layers of security. Your personal information is encrypted both in transit and at rest, stored on secure servers with regular backups. We follow GDPR and other international privacy regulations.",
   },
   {
     id: 8,
     category: "billing",
     question: "What are the pricing plans available?",
-    answer: "NEXUS offers flexible pricing to suit different needs: a Free tier with basic features for individual users, a Professional plan ($15/month) with advanced collaboration tools and priority support, and an Enterprise plan with custom pricing for organizations."
+    answer:
+      "NEXUS offers flexible pricing to suit different needs: a Free tier with basic features for individual users, a Professional plan ($15/month) with advanced collaboration tools and priority support, and an Enterprise plan with custom pricing for organizations.",
   },
   {
     id: 9,
     category: "platform",
     question: "Can I use NEXUS on mobile devices?",
-    answer: "Yes! NEXUS is fully responsive and works seamlessly on all devices including smartphones and tablets. We also offer native mobile apps for iOS and Android with push notifications and optimized mobile interfaces."
+    answer:
+      "Yes! NEXUS is fully responsive and works seamlessly on all devices including smartphones and tablets. We also offer native mobile apps for iOS and Android with push notifications and optimized mobile interfaces.",
   },
   {
     id: 10,
     category: "support",
     question: "What support options are available?",
-    answer: "We provide comprehensive support through multiple channels: 24/7 live chat support, detailed help documentation and video tutorials, community forums where users help each other, and regular webinars and training sessions."
-  }
+    answer:
+      "We provide comprehensive support through multiple channels: 24/7 live chat support, detailed help documentation and video tutorials, community forums where users help each other, and regular webinars and training sessions.",
+  },
 ];
 
 export default function FAQ() {
@@ -119,7 +144,6 @@ export default function FAQ() {
 
   return (
     <div className="min-h-screen bg-white text-black">
-      {/* Hero Section */}
       <nav className="relative z-50 p-6">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="text-2xl font-bold bg-gradient-to-r from-black to-gray-700 bg-clip-text text-transparent hover:scale-110 transition-transform duration-300 cursor-pointer">
@@ -133,8 +157,8 @@ export default function FAQ() {
                   item === "Home"
                     ? "/"
                     : item === "FAQ"
-                      ? "/faq"
-                      : `/${item.toLowerCase()}`
+                    ? "/faq"
+                    : `/${item.toLowerCase()}`
                 }
                 className={`transition-all duration-300 relative group transform hover:scale-105 ${
                   item === "FAQ"
@@ -155,7 +179,7 @@ export default function FAQ() {
         </div>
       </nav>
       <main className="max-w-7xl mx-auto px-6 py-12">
-        <motion.div 
+        <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -165,10 +189,10 @@ export default function FAQ() {
             Frequently Asked Questions
           </h1>
           <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto mb-8 leading-relaxed">
-            Find answers to common questions about NEXUS platform, features, and how to get the most out of your experience.
+            Find answers to common questions about NEXUS platform, features, and
+            how to get the most out of your experience.
           </p>
 
-          {/* Search Bar */}
           <div className="max-w-2xl mx-auto mb-8">
             <div className="relative group">
               <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 group-focus-within:text-black transition-colors duration-300" />
@@ -183,8 +207,7 @@ export default function FAQ() {
           </div>
         </motion.div>
 
-        {/* Category Filter */}
-        <motion.div 
+        <motion.div
           className="mb-12"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -217,8 +240,7 @@ export default function FAQ() {
           </div>
         </motion.div>
 
-        {/* FAQ List */}
-        <motion.div 
+        <motion.div
           className="mb-16"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -248,7 +270,6 @@ export default function FAQ() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: index * 0.1 }}
                   >
-                    {/* Question Header */}
                     <button
                       onClick={() => toggleFAQ(faq.id)}
                       className="w-full p-6 text-left flex items-center justify-between hover:bg-gray-100/50 transition-all duration-300 group"
@@ -263,7 +284,8 @@ export default function FAQ() {
                           </h3>
                           <div className="flex items-center mt-2 space-x-4">
                             <span className="text-sm text-gray-500 capitalize">
-                              {categories.find((c) => c.id === faq.category)?.name || faq.category}
+                              {categories.find((c) => c.id === faq.category)
+                                ?.name || faq.category}
                             </span>
                           </div>
                         </div>
@@ -285,7 +307,6 @@ export default function FAQ() {
                       </div>
                     </button>
 
-                    {/* Answer Content */}
                     <AnimatePresence>
                       {isExpanded && (
                         <motion.div
@@ -322,7 +343,6 @@ export default function FAQ() {
                       )}
                     </AnimatePresence>
 
-                    {/* Animated border indicator */}
                     <motion.div
                       className="h-1 bg-gradient-to-r from-black to-gray-700"
                       initial={{ width: 0 }}
@@ -335,8 +355,6 @@ export default function FAQ() {
             </div>
           )}
         </motion.div>
-
-      
       </main>
     </div>
   );

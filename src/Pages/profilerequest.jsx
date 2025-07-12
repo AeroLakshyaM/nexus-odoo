@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import {
   motion,
   AnimatePresence,
@@ -8,6 +8,186 @@ import {
 } from "framer-motion";
 import { useNavigate } from "react-router";
 
+// Add mock current user skills
+const mySkills = [
+  "React",
+  "UI/UX Design",
+  "Figma",
+  "Node.js",
+  "Python",
+  "JavaScript",
+  "TypeScript",
+  "HTML/CSS",
+  "Project Management",
+  "Agile/Scrum",
+  "Business Analysis",
+  "SEO",
+  "Copywriting",
+  "Data Analysis",
+  "Machine Learning",
+  "AutoCAD",
+  "Adobe Photoshop",
+  "Public Speaking",
+  "Team Leadership",
+  "Vue.js",
+  "Django",
+  "Flutter",
+  "C++",
+  "Go",
+  "Ruby",
+];
+
+function SwapRequestModal({ open, onClose, wantedSkills, offeredSkills }) {
+  if (!open) return null;
+  const selectStyle = {
+    width: "100%",
+    background: "#23272a",
+    color: "white",
+    border: "2px solid white",
+    borderRadius: 8,
+    padding: "10px 36px 10px 10px",
+    fontSize: 16,
+    appearance: "none",
+    fontFamily: "inherit",
+    outline: "none",
+  };
+  const optionStyle = {
+    background: "#23272a",
+    color: "white",
+  };
+  return (
+    <div
+      style={{
+        position: "fixed",
+        zIndex: 1000,
+        top: 0,
+        left: 0,
+        width: "100vw",
+        height: "100vh",
+        background: "rgba(0,0,0,0.7)",
+      }}
+      onClick={onClose}
+    >
+      <div
+        style={{
+          background: "#18191a",
+          color: "white",
+          borderRadius: 16,
+          maxWidth: 350,
+          margin: "60px auto",
+          padding: 24,
+          border: "2px solid white",
+          fontFamily: "Comic Sans MS, Comic Sans, Chalkboard, cursive",
+          boxShadow: "0 4px 32px #000a",
+          position: "relative",
+        }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          onClick={onClose}
+          style={{
+            position: "absolute",
+            top: 8,
+            right: 12,
+            color: "white",
+            background: "none",
+            border: "none",
+            fontSize: 22,
+            cursor: "pointer",
+          }}
+        >
+          &times;
+        </button>
+        <form className="flex flex-col gap-4">
+          <label style={{ marginBottom: 2 }}>
+            Choose one of your offered skills
+          </label>
+          <div style={{ position: "relative" }}>
+            <select style={selectStyle}>
+              {offeredSkills.map((skill) => (
+                <option key={skill} style={optionStyle}>
+                  {skill}
+                </option>
+              ))}
+            </select>
+            <span
+              style={{
+                position: "absolute",
+                right: 12,
+                top: "50%",
+                transform: "translateY(-50%)",
+                pointerEvents: "none",
+                color: "white",
+                fontSize: 22,
+              }}
+            >
+              &#9660;
+            </span>
+          </div>
+          <label style={{ marginBottom: 2 }}>
+            Choose one of their wanted skills
+          </label>
+          <div style={{ position: "relative" }}>
+            <select style={selectStyle}>
+              {wantedSkills.map((skill) => (
+                <option key={skill} style={optionStyle}>
+                  {skill}
+                </option>
+              ))}
+            </select>
+            <span
+              style={{
+                position: "absolute",
+                right: 12,
+                top: "50%",
+                transform: "translateY(-50%)",
+                pointerEvents: "none",
+                color: "white",
+                fontSize: 22,
+              }}
+            >
+              &#9660;
+            </span>
+          </div>
+          <label style={{ marginBottom: 2 }}>Message</label>
+          <textarea
+            style={{
+              width: "100%",
+              minHeight: 80,
+              background: "transparent",
+              color: "white",
+              border: "2px solid white",
+              borderRadius: 16,
+              padding: 10,
+              fontSize: 16,
+              fontFamily: "inherit",
+              outline: "none",
+              resize: "none",
+            }}
+          />
+          <button
+            type="submit"
+            style={{
+              margin: "0 auto",
+              marginTop: 10,
+              background: "#234",
+              color: "white",
+              border: "2px solid white",
+              borderRadius: 8,
+              padding: "8px 32px",
+              fontSize: 18,
+              fontFamily: "inherit",
+              cursor: "pointer",
+            }}
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+}
+
 export default function UserProfilePage() {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("overview");
@@ -15,57 +195,7 @@ export default function UserProfilePage() {
   const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
-  const [profileData, setProfileData] = useState({
-    name: "",
-    title: "",
-    location: "",
-    email: "",
-    phone: "",
-    joinDate: "",
-    bio: "",
-    avatar: "",
-    coverImage: "",
-    stats: {
-      projects: 0,
-      followers: 0,
-      following: 0,
-      likes: 0,
-    },
-    skills: { design: [], development: [] },
-    experience: [],
-    projects: [],
-    achievements: [],
-    socialLinks: {},
-  });
-
-  useEffect(() => {
-    fetch("http://localhost:4000/api/profile")
-      .then((res) => res.json())
-      .then((data) => {
-        if (data) {
-          // Always merge backend data into the full frontend default profile
-          setProfileData((prevDefault) => ({
-            ...prevDefault,
-            ...data,
-            stats: { ...prevDefault.stats, ...(data.stats || {}) },
-            skills: { ...prevDefault.skills, ...(data.skills || {}) },
-            experience: Array.isArray(data.experience)
-              ? data.experience
-              : prevDefault.experience,
-            projects: Array.isArray(data.projects)
-              ? data.projects
-              : prevDefault.projects,
-            achievements: Array.isArray(data.achievements)
-              ? data.achievements
-              : prevDefault.achievements,
-            socialLinks: {
-              ...prevDefault.socialLinks,
-              ...(data.socialLinks || {}),
-            },
-          }));
-        }
-      });
-  }, []);
+  const [swapModalOpen, setSwapModalOpen] = useState(false);
 
   const tabsRef = useRef(null);
   const x = useMotionValue(0);
@@ -75,7 +205,136 @@ export default function UserProfilePage() {
     ["#000000", "#374151", "#6b7280"]
   );
 
+  const profileData = {
+    name: "Alexandra Chen",
+    title: "Senior UX/UI Designer & Frontend Developer",
+    location: "San Francisco, CA",
+    email: "alexandra.chen@email.com",
+    phone: "+1 (555) 123-4567",
+    joinDate: "March 2022",
+    bio: "Passionate designer and developer with 8+ years of experience creating beautiful, user-centered digital experiences. I specialize in bridging the gap between design and development, ensuring pixel-perfect implementations that delight users.",
+    avatar: "/placeholder.svg?height=200&width=200",
+    coverImage: "/placeholder.svg?height=300&width=800",
+    stats: {
+      projects: 47,
+      followers: 1234,
+      following: 567,
+      likes: 8901,
+    },
+    skills: {
+      design: [
+        { name: "UI/UX Design", level: 95 },
+        { name: "Figma", level: 90 },
+        { name: "Adobe Creative Suite", level: 85 },
+        { name: "Prototyping", level: 88 },
+      ],
+      development: [
+        { name: "React", level: 92 },
+        { name: "TypeScript", level: 88 },
+        { name: "Next.js", level: 85 },
+        { name: "Tailwind CSS", level: 90 },
+      ],
+    },
+    experience: [
+      {
+        company: "TechCorp Inc.",
+        position: "Senior UX Designer",
+        duration: "2022 - Present",
+        description:
+          "Leading design initiatives for enterprise SaaS products, managing a team of 4 designers.",
+      },
+      {
+        company: "StartupXYZ",
+        position: "Product Designer",
+        duration: "2020 - 2022",
+        description:
+          "Designed and developed the complete user experience for a fintech mobile application.",
+      },
+      {
+        company: "Design Studio",
+        position: "UI Designer",
+        duration: "2018 - 2020",
+        description:
+          "Created beautiful interfaces for various client projects across different industries.",
+      },
+    ],
+    projects: [
+      {
+        title: "E-commerce Dashboard",
+        description:
+          "Complete redesign of admin dashboard with 40% improvement in user efficiency",
+        image: "/placeholder.svg?height=200&width=300",
+        tags: ["UI/UX", "React", "Analytics"],
+      },
+      {
+        title: "Mobile Banking App",
+        description:
+          "Fintech mobile app serving 100K+ users with seamless transaction experience",
+        image: "/placeholder.svg?height=200&width=300",
+        tags: ["Mobile", "Fintech", "UX Research"],
+      },
+      {
+        title: "Design System",
+        description:
+          "Comprehensive design system adopted across 15+ products in the organization",
+        image: "/placeholder.svg?height=200&width=300",
+        tags: ["Design System", "Components", "Documentation"],
+      },
+    ],
+    achievements: [
+      {
+        title: "Design Excellence Award",
+        year: "2023",
+        organization: "TechCorp",
+      },
+      {
+        title: "Best Mobile App Design",
+        year: "2022",
+        organization: "Design Awards",
+      },
+      {
+        title: "Innovation in UX",
+        year: "2021",
+        organization: "UX Conference",
+      },
+    ],
+    socialLinks: {
+      github: "https://github.com/alexandra-chen",
+      linkedin: "https://linkedin.com/in/alexandra-chen",
+      twitter: "https://twitter.com/alexandra_chen",
+      website: "https://alexandrachen.design",
+    },
+  };
+
   const tabs = ["overview", "projects", "experience", "skills"];
+
+  // Combine all profileData skills for wantedSkills
+  const wantedSkills = [
+    ...profileData.skills.design.map((s) => s.name),
+    ...profileData.skills.development.map((s) => s.name),
+    "Project Management",
+    "Agile/Scrum",
+    "User Research",
+    "Prototyping",
+    "Design Systems",
+    "Version Control",
+    "API Integration",
+    "Business Analysis",
+    "SEO",
+    "Copywriting",
+    "Data Analysis",
+    "Machine Learning",
+    "AutoCAD",
+    "Adobe Photoshop",
+    "Public Speaking",
+    "Team Leadership",
+    "Vue.js",
+    "Django",
+    "Flutter",
+    "C++",
+    "Go",
+    "Ruby",
+  ];
 
   // Touch handlers for tab swiping
   const handleTouchStart = (e) => {
@@ -151,6 +410,13 @@ export default function UserProfilePage() {
 
   return (
     <div className="min-h-screen bg-white text-black">
+      <SwapRequestModal
+        open={swapModalOpen}
+        onClose={() => setSwapModalOpen(false)}
+        wantedSkills={wantedSkills}
+        offeredSkills={mySkills}
+      />
+
       <motion.header
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -181,7 +447,7 @@ export default function UserProfilePage() {
             </div>
             <div className="flex items-center gap-2">
               <button
-                onClick={() => navigate("/edit")}
+                onClick={() => setSwapModalOpen(true)}
                 className="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors flex items-center gap-2"
               >
                 <svg
@@ -194,15 +460,15 @@ export default function UserProfilePage() {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth={2}
-                    d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+                    d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"
                   />
                 </svg>
-                Edit Profile
+                Connect
               </button>
               <button
                 onClick={() => {
-                  // Handle swap request functionality
-                  alert("Swap request feature coming soon!");
+                  // Handle message functionality
+                  alert("Message feature coming soon!");
                 }}
                 className="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors flex items-center gap-2"
               >
@@ -216,10 +482,10 @@ export default function UserProfilePage() {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth={2}
-                    d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"
+                    d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
                   />
                 </svg>
-                Swap Request
+                Message
               </button>
             </div>
           </div>
@@ -237,10 +503,7 @@ export default function UserProfilePage() {
             <div className="flex flex-col md:flex-row items-center gap-6">
               <div className="relative">
                 <img
-                  src={
-                    profileData.avatar ||
-                    "/placeholder.svg?height=200&width=200"
-                  }
+                  src={profileData.avatar}
                   alt={profileData.name}
                   className="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover border-4 border-white shadow-lg"
                 />

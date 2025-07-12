@@ -293,16 +293,6 @@ export default function Index() {
                 <div className="absolute inset-0 bg-gradient-to-r from-gray-600 to-gray-900 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
                 <div className="absolute inset-0 bg-white/10 transform -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
               </button>
-
-              <button className="group flex items-center space-x-3 text-gray-600 hover:text-black transition-all duration-300 relative">
-                <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center group-hover:bg-gray-200 transition-all duration-300 group-hover:scale-110 relative overflow-hidden">
-                  <Play className="w-5 h-5 ml-1 group-hover:scale-125 transition-transform duration-300" />
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-                </div>
-                <span className="text-lg group-hover:translate-x-2 transition-transform duration-300">
-                  Watch Demo
-                </span>
-              </button>
             </div>
 
             <div className="flex justify-center animate-bounce">
