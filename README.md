@@ -1,8 +1,6 @@
-## Nexus 
+## Nexus : Problem Statement : Skill Swap Platform
 
-Problem Statement : Skill Swap Platform
-
-# Team Members Details 
+**Team Members Details** 
 Team Name - Team Vajra
 
 Team Leader : Lakshya Mishra
