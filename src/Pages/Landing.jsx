@@ -17,7 +17,6 @@ import {
   Coffee,
   Heart,
 } from "lucide-react";
-import Footer from "../Components/Footer.jsx";
 
 export default function Index() {
   const [scrollY, setScrollY] = useState(0);
@@ -27,7 +26,7 @@ export default function Index() {
   const [typedText, setTypedText] = useState("");
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
 
-  const words = ["Innovation", "Excellence", "Creativity", "Success"];
+  const words = ["Innovation", "Creativity"];
   const currentWord = words[currentWordIndex];
 
   useEffect(() => {
@@ -89,8 +88,8 @@ export default function Index() {
   const features = [
     {
       icon: Sparkles,
-      title: "Innovation",
-      description: "Cutting-edge solutions that push boundaries",
+      title: "Collaboration",
+      description: "Collaboration that leads to Innovation",
       color: "text-black",
       illustration: "✨",
     },
@@ -104,7 +103,7 @@ export default function Index() {
     {
       icon: Shield,
       title: "Security",
-      description: "Enterprise-grade protection you can trust",
+      description: "Exceptional protection that you can trust",
       color: "text-black",
       illustration: "🛡️",
     },
@@ -218,7 +217,7 @@ export default function Index() {
             NEXUS
           </div>
           <div className="hidden md:flex space-x-8">
-            {["Home", "About", "Services", "Contact"].map((item, index) => (
+            {["Home", "About", "Contact"].map((item, index) => (
               <a
                 key={item}
                 href={item === "Home" ? "/" : `/${item.toLowerCase()}`}
@@ -275,8 +274,8 @@ export default function Index() {
               <span className="bg-gradient-to-r from-gray-800 to-black bg-clip-text text-transparent font-semibold">
                 excellence
               </span>
-              . Crafting digital experiences that transform possibilities into
-              reality.
+              . Crafting upskilling technologies that transform possibilities
+              into reality.
             </div>
 
             <div
@@ -368,24 +367,6 @@ export default function Index() {
 
                   <div className="w-0 h-1 bg-gradient-to-r from-black to-gray-700 group-hover:w-full transition-all duration-700 rounded-full"></div>
                 </div>
-
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                  {[...Array(5)].map((_, i) => (
-                    <div
-                      key={i}
-                      className="absolute w-2 h-2 bg-gray-400 rounded-full"
-                      style={{
-                        left: `${Math.random() * 100}%`,
-                        top: `${Math.random() * 100}%`,
-                        animationName: "ping",
-                        animationDuration: "2s",
-                        animationTimingFunction: "cubic-bezier(0, 0, 0.2, 1)",
-                        animationIterationCount: "infinite",
-                        animationDelay: `${i * 200}ms`,
-                      }}
-                    ></div>
-                  ))}
-                </div>
               </div>
             ))}
           </div>
@@ -400,7 +381,7 @@ export default function Index() {
             }`}
           >
             {[
-              { number: "500+", label: "Projects Completed", icon: Rocket },
+              { number: "500+", label: "Skills Swapped", icon: Rocket },
               { number: "10M+", label: "Users Reached", icon: Users },
               { number: "99.9%", label: "Uptime Guarantee", icon: Award },
               { number: "24/7", label: "Support Available", icon: Coffee },
@@ -451,16 +432,15 @@ export default function Index() {
             {[
               {
                 icon: Code,
-                title: "Development",
+                title: "Collab & Code",
                 description:
-                  "Custom software solutions built with cutting-edge technology",
+                  "Collaborate & Code all together on a single platform",
                 color: "from-gray-100 to-gray-200",
               },
               {
                 icon: Globe,
-                title: "Consulting",
-                description:
-                  "Strategic guidance to transform your digital presence",
+                title: "Connect",
+                description: "Connect & Network with people across globe ",
                 color: "from-gray-50 to-gray-150",
               },
               {
@@ -480,7 +460,6 @@ export default function Index() {
                 <div className="relative z-10">
                   <div className="flex items-center justify-between mb-6">
                     <service.icon className="w-12 h-12 text-black group-hover:scale-110 group-hover:rotate-6 transition-all duration-500" />
-                    <ArrowRight className="w-6 h-6 text-gray-400 group-hover:text-black group-hover:translate-x-2 transition-all duration-300" />
                   </div>
 
                   <h3 className="text-2xl font-bold mb-4 text-black group-hover:text-gray-800 transition-colors duration-300">
@@ -543,14 +522,14 @@ export default function Index() {
                 Ready to Get Started?
               </h2>
               <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-                Join thousands of satisfied clients who have transformed their
-                digital presence with NEXUS.
+                Join thousands of satisfied users who have transformed their
+                skills & expertise with NEXUS.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <button className="group bg-gradient-to-r from-black to-gray-800 text-white px-8 py-4 rounded-full text-lg font-medium hover:from-gray-900 hover:to-black transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl relative overflow-hidden">
                   <span className="relative z-10 flex items-center space-x-2">
-                    <span>Start Your Project Today</span>
+                    <span>Start Your Upskilling Today</span>
                     <Rocket className="w-5 h-5 group-hover:rotate-12 group-hover:scale-110 transition-all duration-300" />
                   </span>
                   <div className="absolute inset-0 bg-gradient-to-r from-gray-600 to-gray-900 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
