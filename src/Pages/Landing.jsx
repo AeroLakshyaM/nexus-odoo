@@ -217,7 +217,7 @@ export default function Index() {
             NEXUS
           </div>
           <div className="hidden md:flex space-x-8">
-            {["Home", "About", "Contact"].map((item, index) => (
+            {["Home", "About", "FAQ", "Contact"].map((item, index) => (
               <a
                 key={item}
                 href={item === "Home" ? "/" : `/${item.toLowerCase()}`}

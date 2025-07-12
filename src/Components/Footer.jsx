@@ -17,6 +17,7 @@ const Footer = () => {
     { name: "Home", href: "/", isActive: true },
     { name: "About Us", href: "/about" },
     { name: "Contact Us", href: "/contact" },
+    { name: "FAQ", href: "/faq" },
   ];
 
   const socialLinks = [
