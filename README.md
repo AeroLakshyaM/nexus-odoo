@@ -1,12 +1,69 @@
-# React + Vite
+## 🚀 Nexus Project Submission 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 💡 Skill Swap Platform
+ 
+**Problem Statement:** Build a platform that enables individuals to exchange skills with others – a **Skill Swap Platform**. Users can offer skills they possess and request skills they want to learn, forming mutually beneficial collaborations.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 👥 Team: Team Vajra
 
-## Expanding the ESLint configuration
+| Role          | Name                | Contact Number | Email Address                      |
+|---------------|---------------------|----------------|------------------------------------|
+| Team Leader   | Lakshya Mishra      | 8770222006     | lakshyamishra099@gmail.com         |
+| Member 1      | Anugrah Sharma      | 8770222006     | anuash130c@gmail.com               |
+| Member 2      | M. Raja Rao Reddy   | 8770761851     | vickyreddybro2004@gmail.com        |
+| Member 3      | Lasika Rathore      | 8878845677     | lasika07082004@gmail.com           |
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 📝 Project Description
+
+The **Skill Swap Platform** is a decentralized and user-driven portal where users can:
+
+- 🎯 Offer skills they are proficient in
+- 🤝 Request skills they want to learn
+- 🔄 Match with other users for a skill exchange
+- 💬 Communicate and schedule learning sessions
+- ⭐ Rate and review fellow users after each swap
+
+This platform promotes peer-to-peer learning, community engagement, and democratization of education by enabling people to learn and grow using their own unique talents.
+
+---
+
+## 🔧 Features
+
+- 🔍 Skill-based user search and filtering
+- 📬 Request system for skill exchange
+- 📅 Schedule coordination tools
+- 📈 User profiles with skill tags, badges, and ratings
+- 🔒 Secure login and data handling
+
+---
+
+## 🛠️ Tech Stack (Suggested)
+
+- **Frontend:** React.js / Next.js
+- **Backend:** Node.js / Express
+- **Database:** MongoDB / PostgreSQL
+- **Authentication:** Firebase / Auth0
+- **Deployment:** Vercel / Netlify / Render
+
+---
+
+## 🏁 Future Improvements
+
+- AI-based skill-matching recommendation engine
+- Gamification with points and rewards
+- Group classes and community events
+- Mobile application version
+
+---
+
+## 📞 Contact Us
+
+For any queries or collaborations, feel free to contact any of our team members through the provided email addresses or phone numbers.
+
+---
+
+> _This project is submitted as a part of the Nexus Hackathon under the Skill Swap Platform problem statement by Team Vajra._
