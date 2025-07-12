@@ -16,10 +16,7 @@ const Footer = () => {
   const navigationLinks = [
     { name: "Home", href: "/", isActive: true },
     { name: "About Us", href: "/about" },
-    { name: "Services", href: "/services" },
-    { name: "Portfolio", href: "/portfolio" },
     { name: "Contact Us", href: "/contact" },
-    { name: "Blog", href: "/blog" },
   ];
 
   const socialLinks = [
@@ -39,32 +36,18 @@ const Footer = () => {
       bgColor: "group-hover:bg-gray-600",
     },
     {
-      name: "Twitter",
-      href: "https://twitter.com",
-      icon: Twitter,
-      color: "hover:text-white",
-      bgColor: "group-hover:bg-gray-600",
-    },
-    {
       name: "LinkedIn",
       href: "https://linkedin.com",
       icon: Linkedin,
       color: "hover:text-white",
       bgColor: "group-hover:bg-gray-700",
     },
-    {
-      name: "YouTube",
-      href: "https://youtube.com",
-      icon: Youtube,
-      color: "hover:text-white",
-      bgColor: "group-hover:bg-gray-700",
-    },
   ];
 
   const contactInfo = [
-    { icon: Mail, text: "hello@company.com" },
-    { icon: Phone, text: "+1 (555) 123-4567" },
-    { icon: MapPin, text: "New York, NY" },
+    { icon: Mail, text: "lakshyamishra099@gmail.com" },
+    { icon: Phone, text: "+91- 8770222006" },
+    { icon: MapPin, text: "Indore, Madhya Pradesh" },
   ];
 
   return (
@@ -98,9 +81,6 @@ const Footer = () => {
           </div>
 
           <div className="lg:col-span-1 lg:text-center">
-            <h3 className="text-2xl font-semibold mb-8 text-white">
-              Navigation
-            </h3>
             <nav className="space-y-4">
               {navigationLinks.map((link, index) => (
                 <div key={index} className="relative group">
@@ -147,7 +127,11 @@ const Footer = () => {
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
                   </div>
                   <div
-                    className={`absolute -top-12 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white px-3 py-1 rounded-lg text-sm opacity-0 group-hover:opacity-100 transition-all duration-300 ${hoveredSocial === index ? "translate-y-0" : "translate-y-2"}`}
+                    className={`absolute -top-12 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white px-3 py-1 rounded-lg text-sm opacity-0 group-hover:opacity-100 transition-all duration-300 ${
+                      hoveredSocial === index
+                        ? "translate-y-0"
+                        : "translate-y-2"
+                    }`}
                   >
                     {social.name}
                     <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
@@ -157,29 +141,13 @@ const Footer = () => {
             </div>
 
             {/* Newsletter Signup */}
-            <div className="lg:text-right">
-              <h4 className="text-lg font-medium mb-4 text-white">
-                Stay Updated
-              </h4>
-              <div className="flex lg:justify-end justify-center">
-                <div className="relative group">
-                  <input
-                    type="email"
-                    placeholder="Enter your email"
-                    className="bg-gray-800 border border-gray-700 rounded-l-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-blue-400 transition-colors duration-300 w-64"
-                  />
-                  <button className="bg-gradient-to-r from-gray-700 to-black text-white px-6 py-3 rounded-r-lg hover:from-gray-600 hover:to-gray-900 transition-all duration-300 transform hover:scale-105 font-medium">
-                    Subscribe
-                  </button>
-                </div>
-              </div>
-            </div>
+            <div className="lg:text-right"></div>
           </div>
         </div>
 
         {/* Bottom Bar */}
         <div className="mt-16 pt-8 border-t border-gray-800">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+          <div className="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0">
             <div className="text-gray-400 text-sm">
               © 2025 NEXUS. All rights reserved. Crafted with ❤
             </div>
