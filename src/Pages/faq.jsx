@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+// eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, Search, HelpCircle, MessageCircle, BookOpen, Lightbulb, Zap, Users, Shield, CheckCircle, Phone, Mail, ArrowRight } from "lucide-react";
 
