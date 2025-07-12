@@ -1,4 +1,4 @@
-##🚀 Nexus Hackathon Project Submission 
+## 🚀 Nexus Project Submission 
 
 # 💡 Skill Swap Platform
  
