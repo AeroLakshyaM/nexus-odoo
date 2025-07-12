@@ -134,7 +134,7 @@ export default function About() {
             NEXUS
           </div>
           <div className="hidden md:flex space-x-8">
-            {["Home", "About", "FAQ", "Contact"].map((item) => (
+            {["Home", "About", "Services", "Contact"].map((item) => (
               <a
                 key={item}
                 href={item === "Home" ? "/" : `/${item.toLowerCase()}`}
